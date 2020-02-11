@@ -20,10 +20,10 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./output_images/undistorted_output.png "Road Undistorted"
-[image3]: ./output_images/sobel_output.jpg "Binary Example"
-[image4]: ./output_images/warp_output.jpg "Warp Example"
+[image3]: ./output_images/sobel_output.png "Binary Example"
+[image4]: ./output_images/warp_output.png "Warp Example"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./output_images/lane_overlay_output.jpg "Output"
+[image6]: ./output_images/lane_overlay_output.png "Output"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
