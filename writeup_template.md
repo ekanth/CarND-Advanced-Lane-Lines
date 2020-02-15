@@ -20,10 +20,10 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./output_images/undistorted_output.png "Road Undistorted"
-[image3]: ./output_images/sobel_output.png "Binary Example"
-[image4]: ./output_images/warp_output.png "Warp Example"
+[image3]: ./output_images/sobel_output.jpg "Binary Example"
+[image4]: ./output_images/warp_output.jpg "Warp Example"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./output_images/lane_overlay_output.png "Output"
+[image6]: ./output_images/lane_overlay_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -102,7 +102,7 @@ I verified that my perspective transform was working as expected by drawing the 
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-The functions to detect the lane lines are in the section 'Finding Lane Lines'. There are two functions `find_lane_inds_from_scratch()` and `find_lane_inds_from_previous()` - the first one uses the windowing method to find lanes from scratch while the second one utlizes the left and right fit from the previous frame to identify the lane lines. The `find_lane_fit()` uses the two functions to find the left and right lane fit. I reused a lot of code implemented in the chapter 15 here.
+The functions to detect the lane lines are in the section 'Finding Lane Lines'. There are two functions `find_lane_inds_from_scratch()` and `find_lane_inds_from_previous()` - the first one uses the windowing method to find lanes from scratch while the second one utlizes the left and right fit from the previous frame to identify the lane lines. The `find_lane_fit()` uses the two functions to find the left and right lane fit. I reused a lot of code implemented in the chapter 15 here. I also use the last five fits to average any variations due to bad road conditions. Additionally, the lane identification is reset to find lane from scratch if three consecutive lane lines found were non-conformant.
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
@@ -130,6 +130,5 @@ Here's a [link to my video result](./project_video_processed.mp4)
 
 I wanted to mention a couple of things I had to tune - one was the range of road I used for the perspective transform. The first one I used lead to poor lane detection coupled with the optimization for lane detection using the previous fit. I had to adjust the range to get this to work properly.
 
-Couple of ideas for improvement:
-1. Add additional guard rail checks in the lane detection to ensure that the lane line are better especially when the color of the road changes (blacktop to cement)
-2. Rank the two lane lines based on confidence and use the better lane to influence the other lane line (use the fact that the lines will be parallel to each other for the most part) and there by improving the lane detection when one of the lane line is weaker.
+Idea for improvement:
+1. Rank the two lane lines based on confidence and use the better lane to influence the other lane line (use the fact that the lines will be parallel to each other for the most part) and there by improving the lane detection when one of the lane line is weaker.
